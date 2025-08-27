@@ -15,8 +15,11 @@ Additionally it was merged with the Open Meteo API
 
 # Highlights
 Time-aware train/validation splitting to mimic real-world deployment
+
 Initial dataset had 200k+ data points
+
 Graphs that analyze trends of utilization, inlcuding heatmaps, bar graphs, and line plots 
+
 Expanded 4 raw columns into 40+ actionable features
 
 # Results
@@ -29,9 +32,15 @@ Results are further plotted in notebook
 
 # Key modeling & preprocessing decisions
 Time-aware split 
+
 Data cleaning included getting rid of implausible sessions (e.g., charging durations > 24 hours) and correcting missing transaction dates
+
 Feature engineering for LightGBM
+    
     Lag features (short, medium, long lags): util_lag_2h, util_lag_24h, util_lag_168h, etc - filled using seasonal fill
+    
     Rolling aggregations: rolling_mean_24h, rolling_std_24h, rolling_max_24h, etc.
+    
     Time features: cyclic encoding of day of week and hour, month, year, season 
+    
     External features aligned to datetime_hour: weather and holiday
